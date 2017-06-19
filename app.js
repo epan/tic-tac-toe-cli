@@ -21,14 +21,8 @@ let board = [
 
 let currentPlayer = 1;
 
-const askMove = () => {
-  prompt.get(['P1moveX', 'P1moveY'], (err, result) => {
-    console.log(result.P1moveX, result.P1moveY);
-  });
-};
-
-const placePiece = (x, y, player) => {
-  // take user input and put piece
+const togglePlayer = () => {
+  currentPlayer = currentPlayer === 1 ? 2 : 1;
 };
 
 const printBoard = () => {
@@ -36,13 +30,29 @@ const printBoard = () => {
   board.forEach(row => console.log(row));
 };
 
+const placePiece = (x, y, playerNum) => {
+  // take user input and put piece for player
+  board[y][x] = playerNum;
+  printBoard();
+};
+
+const askMove = (playerNum) => {
+  console.log(`Player ${playerNum}, where do you want to go? (x, y) coordinates`);
+  prompt.get(['X', 'Y'], (err, result) => {
+    // check valid entries
+    // if valid, save move to the board
+    console.log(result.X, result.Y);
+    placePiece(Number(result.X), Number(result.Y), playerNum);
+  });
+};
+
 const detectWinner = (board) => {
   // check the board for a winner
 };
 
-const togglePlayer = () => {
-  currentPlayer = currentPlayer === 1 ? 2 : 1;
+const playGame = () => {
+
 };
 
-// askMove();
-printBoard();
+// printBoard();
+askMove(currentPlayer);
