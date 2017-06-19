@@ -20,6 +20,7 @@ let board = [
 ];
 
 let currentPlayer = 1;
+let isNextTurnAvailable = true;
 
 const togglePlayer = () => {
   currentPlayer = currentPlayer === 1 ? 2 : 1;
@@ -31,8 +32,8 @@ const printBoard = () => {
 };
 
 const placePiece = (x, y, playerNum) => {
-  // take user input and put piece for player
   board[y][x] = playerNum;
+  togglePlayer();
   printBoard();
 };
 
@@ -41,17 +42,13 @@ const askMove = (playerNum) => {
   prompt.get(['X', 'Y'], (err, result) => {
     // check valid entries
     // if valid, save move to the board
-    console.log(result.X, result.Y);
     placePiece(Number(result.X), Number(result.Y), playerNum);
+    askMove(currentPlayer);
   });
 };
 
 const detectWinner = (board) => {
   // check the board for a winner
-};
-
-const playGame = () => {
-
 };
 
 // printBoard();
