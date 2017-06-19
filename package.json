@@ -18,7 +18,9 @@
   },
   "homepage": "https://github.com/epan/tic-tac-toe-cli#readme",
   "dependencies": {
+    "chai": "^4.0.2",
     "cli": "^1.0.1",
+    "mocha": "^3.4.2",
     "prompt": "^1.0.0"
   }
 }
