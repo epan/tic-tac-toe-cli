@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/epan/tic-tac-toe-cli#readme",
   "dependencies": {
+    "cli": "^1.0.1",
     "prompt": "^1.0.0"
   }
 }

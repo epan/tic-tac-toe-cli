@@ -5,10 +5,16 @@
 const prompt = require('prompt');
 prompt.start();
 
-function askMove() {
-  prompt.get('P1move', (err, result) => {
-    console.log(result.P1move);
+let board = [
+  [0, 0, 0],
+  [0, 0, 0],
+  [0, 0, 0]
+];
+
+const askMove = function () {
+  prompt.get(['P1moveX', 'P1moveY'], (err, result) => {
+    console.log(result.P1moveX, result.P1moveY);
   });
-}
+};
 
 askMove();
